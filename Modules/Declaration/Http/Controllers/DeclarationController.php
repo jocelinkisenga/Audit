@@ -2,6 +2,7 @@
 
 namespace Modules\Declaration\Http\Controllers;
 
+use App\Models\EmployeExterieur;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -21,9 +22,10 @@ class DeclarationController extends Controller
      * Show the form for creating a new resource.
      * @return Renderable
      */
-    public function create()
+    public function create(int $id)
     {
-        return view('declaration::create');
+        $employes = EmployeExterieur::where("entreprise_id", "=", $id)->get();
+        return view('declaration::create', compact("employes"));
     }
 
     /**
