@@ -1,3 +1,5 @@
 {
-    "User": true
+    "User": true,
+    "Declaration": true,
+    "Entreprise": true
 }

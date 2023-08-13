@@ -1,0 +1,11 @@
+{
+    "name": "Declaration",
+    "alias": "declaration",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Declaration\\Providers\\DeclarationServiceProvider"
+    ],
+    "files": []
+}
