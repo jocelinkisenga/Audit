@@ -5,16 +5,21 @@ namespace Modules\Entreprise\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Entreprise\Entities\Entreprise;
+use Modules\Entreprise\Http\Requests\EntrepriseRequest;
 
 class EntrepriseController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
     public function index()
     {
-        return view('entreprise::index');
+        $entreprises = Entreprise::latest()->get();
+
+        return view('entreprise::index',compact("entreprises"));
     }
 
     /**
@@ -31,9 +36,20 @@ class EntrepriseController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(EntrepriseRequest $request)
     {
-        //
+        Entreprise::create([
+            "name" => $request->name,
+            "phone" => $request->phone,
+            "email" => $request->email,
+            "matricule " => $request->matricule,
+            "addresse" => $request->addresse,
+            "town" => $request->town,
+            "province" =>  $request->province,
+            "zip" => $request->zip
+        ]);
+
+        return redirect()->route('entreprises');
     }
 
     /**
