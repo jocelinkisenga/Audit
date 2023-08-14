@@ -32,10 +32,10 @@
                     </tr>
                   </tfoot>
                   <tbody>
-
+                    @foreach ($declarations as $key => $declaration)
                     <tr>
-                        <td></td>
-                        <td></td>
+                        <td>{{$key + 1}}</td>
+                        <td>{{$de}}</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -46,7 +46,10 @@
                         </td>
                       </tr>
 
-                  </tbody>
+                    @endforeach
+
+
+                    </tbody>
                 </table>
             </div>
           </div>

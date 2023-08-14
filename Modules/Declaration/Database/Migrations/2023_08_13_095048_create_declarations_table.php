@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId("entreprise_id");
             $table->foreignId("employe_id")->nullable();
             $table->double("salaire")->nullable();
+            $table->date("date_declaration");
             $table->timestamps();
         });
     }

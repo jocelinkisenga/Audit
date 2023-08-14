@@ -6,6 +6,8 @@ use App\Models\EmployeExterieur;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Declaration\Entities\Declaration;
+use Modules\Declaration\Http\Requests\DeclarationRequest;
 
 class DeclarationController extends Controller
 {
@@ -15,7 +17,8 @@ class DeclarationController extends Controller
      */
     public function index()
     {
-        return view('declaration::index');
+        $declarations = Declaration::latest()->get();
+        return view('declaration::index', compact("declarations"));
     }
 
     /**
@@ -25,7 +28,8 @@ class DeclarationController extends Controller
     public function create(int $id)
     {
         $employes = EmployeExterieur::where("entreprise_id", "=", $id)->get();
-        return view('declaration::create', compact("employes"));
+        $entrepriseId = $id;
+        return view('declaration::create', compact("employes","entrepriseId"));
     }
 
     /**
@@ -35,7 +39,24 @@ class DeclarationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $employe =  EmployeExterieur::create([
+            "entreprise_id" => $request->entreprise_id,
+            "name" => $request->name,
+            "addresse" => $request->addresse,
+            "phone" => $request->phone,
+            "town" => $request->town,
+            "province" => $request->province
+       ]);
+
+       Declaration::create([
+            "entreprise_id" => $request->entreprise_id,
+            "employe_id" => $employe->id,
+            "salaire" => $request->salaire,
+            "date_declaration" => $request->date_declaration
+       ]);
+
+       return redirect()->route("declarations");
+
     }
 
     /**

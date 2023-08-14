@@ -78,6 +78,30 @@
               </ul>
             </li>
             <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                  <span class="icon-holder">
+                    <i class="c-teal-500 ti-view-list-alt"></i>
+                  </span>
+                  <span class="title">Declarations</span>
+                  <span class="arrow">
+                    <i class="ti-angle-right"></i>
+                  </span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item dropdown">
+                    <a href="{{route("declarations")}}">
+                      <span>liste des declarations</span>
+                    </a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a href="{{route("create.entreprise")}}">
+                      <span>créer une entreprise</span>
+                    </a>
+                  </li>
+
+                </ul>
+              </li>
+            <li class="nav-item dropdown">
               <a class="dropdown-toggle" href="javascript:void(0);">
                 <span class="icon-holder">
                   <i class="c-teal-500 ti-user"></i>

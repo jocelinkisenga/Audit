@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('employe_exterieurs', function (Blueprint $table) {
             $table->id();
             $table->foreignId("entreprise_id");
-            $table->string("name");
+            $table->string("name")->unique();
             $table->string("addresse");
-            $table->string("phone");
+            $table->string("phone")->unique();
             $table->string("town")->nullable();
             $table->string("province")->nullable();
             $table->timestamps();
