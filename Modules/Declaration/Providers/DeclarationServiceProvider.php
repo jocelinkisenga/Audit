@@ -30,6 +30,7 @@ class DeclarationServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
     }
 
+
     /**
      * Register the service provider.
      *

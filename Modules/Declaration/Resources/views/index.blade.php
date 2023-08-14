@@ -17,6 +17,9 @@
                         <th>salaire</th>
                         <th>entreprise</th>
                         <th>date</th>
+                        <th>INPP</th>
+                        <th>INSS</th>
+                        <th>DRHKAT</th>
                         <th>Actions</th>
                     </tr>
                   </thead>
@@ -28,6 +31,9 @@
                         <th>salaire</th>
                         <th>entreprise</th>
                         <th>date</th>
+                        <th>INPP</th>
+                        <th>INSS</th>
+                        <th>DRHKAT</th>
                         <th>Actions</th>
                     </tr>
                   </tfoot>
@@ -41,8 +47,17 @@
                         <td>{{$declaration->entreprise->name}}</td>
                         <td>{{$declaration->date_declaration}}</td>
                         <td>
-                          <a href="" title="modifier"> <span class="icon-holder"><i class="fa fa-edit btn-primary"></i></span></a>
-                          <a href="" title="déclarer">  <span class="icon-holder"><i class="fa fa-eye btn-success"></i></span> </a>
+                            @foreach ($taxes as $tax)
+                                @if ($tax->name === "INPP")
+                                    {{$declaration->salaire - ((16/100) * $declaration->salaire)}}
+                                @endif
+                            @endforeach
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                          <a href="" title="modifier" class="btn btn-sm btn-success"> <span class="icon-holder"><i class="fa fa-edit btn-primary"></i></span></a>
+                          <a href="" title="déclarer" class="btn btn-sm btn-warning">  <span class="icon-holder"><i class="fa fa-eye btn-success"></i></span> </a>
                         </td>
                       </tr>
 

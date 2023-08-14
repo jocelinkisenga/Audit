@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Declaration\Entities\Declaration;
 use Modules\Declaration\Http\Requests\DeclarationRequest;
+use Modules\Tax\Entities\Tax;
 
 class DeclarationController extends Controller
 {
@@ -18,7 +19,8 @@ class DeclarationController extends Controller
     public function index()
     {
         $declarations = Declaration::latest()->get();
-        return view('declaration::index', compact("declarations"));
+        $taxes = Tax::all();
+        return view('declaration::index', compact("declarations","taxes"));
     }
 
     /**

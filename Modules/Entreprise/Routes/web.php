@@ -13,11 +13,11 @@
 
 use Modules\Entreprise\Http\Controllers\EntrepriseController;
 
-Route::middleware(['auth', 'second'])->group(function () {
+
     Route::get("entreprises",[EntrepriseController::class,'index'])->name("entreprises");
 
     Route::get("create",[EntrepriseController::class,"create"])->name("create.entreprise");
 
     Route::post('store/',[EntrepriseController::class,"store"])->name("store.entreprise");
 
-});
+
