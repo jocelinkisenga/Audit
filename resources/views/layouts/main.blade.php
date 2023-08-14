@@ -59,7 +59,7 @@
             }
         }
     </style>
-    <script defer="defer" src="main.js"></script>
+    <script defer="defer" src="{{asset("main.js")}}"></script>
 </head>
 
 <body class="app">
