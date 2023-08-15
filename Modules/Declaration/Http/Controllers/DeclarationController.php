@@ -31,7 +31,8 @@ class DeclarationController extends Controller
     {
         $employes = EmployeExterieur::where("entreprise_id", "=", $id)->get();
         $entrepriseId = $id;
-        return view('declaration::create', compact("employes","entrepriseId"));
+        $taxes = Tax::all();
+        return view('declaration::create', compact("employes","entrepriseId","taxes"));
     }
 
     /**
@@ -41,21 +42,32 @@ class DeclarationController extends Controller
      */
     public function store(Request $request)
     {
-       $employe =  EmployeExterieur::create([
-            "entreprise_id" => $request->entreprise_id,
-            "name" => $request->name,
-            "addresse" => $request->addresse,
-            "phone" => $request->phone,
-            "town" => $request->town,
-            "province" => $request->province
-       ]);
+        $user = EmployeExterieur::find($request->employe_id);
+        if($user != null) {
+            Declaration::create([
+                "entreprise_id" => $request->entreprise_id,
+                "employe_id" => $request->employe_id,
+                "salaire" => $request->salaire,
+                "date_declaration" => $request->date_declaration
+           ]);
+        } else {
+            $employe =  EmployeExterieur::create([
+                "entreprise_id" => $request->entreprise_id,
+                "name" => $request->name,
+                "addresse" => $request->addresse,
+                "phone" => $request->phone,
+                "town" => $request->town,
+                "province" => $request->province
+           ]);
 
-       Declaration::create([
-            "entreprise_id" => $request->entreprise_id,
-            "employe_id" => $employe->id,
-            "salaire" => $request->salaire,
-            "date_declaration" => $request->date_declaration
-       ]);
+           Declaration::create([
+                "entreprise_id" => $request->entreprise_id,
+                "employe_id" => $employe->id,
+                "salaire" => $request->salaire,
+                "date_declaration" => $request->date_declaration
+           ]);
+        }
+
 
        return redirect()->route("declarations");
 

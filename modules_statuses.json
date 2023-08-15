@@ -2,5 +2,6 @@
     "User": true,
     "Declaration": true,
     "Entreprise": true,
-    "Tax": true
+    "Tax": true,
+    "Dgi": true
 }

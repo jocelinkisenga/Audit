@@ -2,8 +2,7 @@
 
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Route;
-
-
+use Modules\Declaration\Entities\DeclarationEntrepriseDgi;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,4 +20,6 @@ use Modules\Declaration\Http\Controllers\DeclarationController;
 Route::get("declarations",[DeclarationController::class,'index'])->name("declarations");
 Route::get("create/{id}",[DeclarationController::class,"create"])->name("create.declaration");
 Route::post('declaration',[DeclarationController::class,'store'])->name("store.declaration");
+
+
 

@@ -69,6 +69,23 @@
                     </div>
                   </div>
 
+                  <div class="row">
+                    @foreach ($taxes as $item)
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <div class="checkbox checkbox-square checkbox-info peers ai-c">
+                              <input type="checkbox" id="inputCall2" name="tax_id" class="peer">
+                              <label for="inputCall2" class="form-label peers peer-greed js-sb ai-c">
+                                <span class="peer peer-greed">{{$item->name}}</span>
+                              </label>
+                            </div>
+                          </div>
+                    </div>
+                    @endforeach
+
+                    </div>
+
+
                 <button type="submit" class="btn btn-success btn-color">Enregistrer</button>
               </form>
             </div>

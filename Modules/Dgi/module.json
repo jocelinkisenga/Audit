@@ -1,0 +1,11 @@
+{
+    "name": "Dgi",
+    "alias": "dgi",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Dgi\\Providers\\DgiServiceProvider"
+    ],
+    "files": []
+}
