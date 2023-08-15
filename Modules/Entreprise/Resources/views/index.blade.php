@@ -28,7 +28,7 @@
                         <th>Matricule</th>
                         <th>ville</th>
                         <th>province</th>
-                        <th>Déclarer</th>
+                        <th>Actions</th>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -41,8 +41,8 @@
                         <td>{{$entreprise->town}}</td>
                         <td>{{$entreprise->province}}</td>
                         <td>
-                          <a href="" title="modifier" class="btn btn-sm  btn-success"> <span class="icon-holder"><i class="fa fa-edit btn-primary"></i></span></a>
-                          <a href="{{route("create.declaration",['id' => $entreprise->id])}}" title="déclarer" class="btn btn-sm btn-warning">  <span class="icon-holder"><i class="fa fa-eye btn-success"></i></span> </a>
+                          <a href="" title="modifier" class="btn btn-sm  btn-primary"> <span class="icon-holder"><i class="fa fa-eye btn-primary"></i></span></a>
+                          <a href=" {{route("dgi.create",["id" => $entreprise->id])}} " title="déclarer" class="btn btn-sm btn-success">  <span class="icon-holder"><i class="fa fa-edit btn-success"></i></span> </a>
                         </td>
                       </tr>
                     @endforeach

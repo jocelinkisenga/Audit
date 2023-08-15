@@ -60,6 +60,7 @@
         }
     </style>
     <script defer="defer" src="{{asset("main.js")}}"></script>
+    @livewireStyles
 </head>
 
 <body class="app">
@@ -100,6 +101,7 @@
             @include('components.footer')
         </div>
     </div>
+    @livewireScripts
 </body>
 
 </html>
