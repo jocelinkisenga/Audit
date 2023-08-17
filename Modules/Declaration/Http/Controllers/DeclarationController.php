@@ -20,7 +20,7 @@ class DeclarationController extends Controller
     {
         $declarations = Declaration::latest()->get();
         $taxes = Tax::all();
-        return view('declaration::index', compact("declarations","taxes"));
+        return view('declaration::index', compact("declarations", "taxes"));
     }
 
     /**
@@ -32,7 +32,7 @@ class DeclarationController extends Controller
         $employes = EmployeExterieur::where("entreprise_id", "=", $id)->get();
         $entrepriseId = $id;
         $taxes = Tax::all();
-        return view('declaration::create', compact("employes","entrepriseId","taxes"));
+        return view('declaration::create', compact("employes", "entrepriseId", "taxes"));
     }
 
     /**
@@ -42,35 +42,18 @@ class DeclarationController extends Controller
      */
     public function store(Request $request)
     {
+        foreach($request->tax_id as $key =>$tax){
+            dd($tax);
+        }
         $user = EmployeExterieur::find($request->employe_id);
-        if($user != null) {
-            Declaration::create([
-                "entreprise_id" => $request->entreprise_id,
-                "employe_id" => $request->employe_id,
-                "salaire" => $request->salaire,
-                "date_declaration" => $request->date_declaration
-           ]);
-        } else {
-            $employe =  EmployeExterieur::create([
-                "entreprise_id" => $request->entreprise_id,
-                "name" => $request->name,
-                "addresse" => $request->addresse,
-                "phone" => $request->phone,
-                "town" => $request->town,
-                "province" => $request->province
-           ]);
+        if ($user != null) {
 
-           Declaration::create([
-                "entreprise_id" => $request->entreprise_id,
-                "employe_id" => $employe->id,
-                "salaire" => $request->salaire,
-                "date_declaration" => $request->date_declaration
-           ]);
+        } else {
+
         }
 
 
-       return redirect()->route("declarations");
-
+        return redirect()->route("declarations");
     }
 
     /**
