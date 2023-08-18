@@ -77,7 +77,7 @@
                     </li> --}}
                 </ul>
             </li>
-            <li class="nav-item dropdown">
+            {{-- <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
                     <span class="icon-holder">
                         <i class="c-teal-500 ti-view-list-alt"></i>
@@ -95,7 +95,7 @@
                     </li>
 
                 </ul>
-            </li>
+            </li> --}}
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
                     <span class="icon-holder">

@@ -17,7 +17,7 @@ use Modules\Declaration\Entities\DeclarationEntrepriseDgi;
 use Modules\Declaration\Http\Controllers\DeclarationController;
 
 
-Route::get("declarations",[DeclarationController::class,'index'])->name("declarations");
+Route::get("declarations/{id}",[DeclarationController::class,'index'])->name("declarations");
 Route::get("create/{id}",[DeclarationController::class,"create"])->name("create.declaration");
 Route::post('declaration',[DeclarationController::class,'store'])->name("store.declaration");
 

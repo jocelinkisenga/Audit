@@ -6,6 +6,7 @@ use App\Models\EmployeExterieur;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Modules\Entreprise\Entities\Entreprise;
 
 class Declaration extends Model
@@ -25,5 +26,9 @@ class Declaration extends Model
 
     public function employe_externe( ) : BelongsTo {
         return $this->belongsTo(EmployeExterieur::class, "employe_id");
+    }
+
+    public function declaration_taxes() : HasMany {
+        return $this->hasMany(DeclarationTaxe::class);
     }
 }

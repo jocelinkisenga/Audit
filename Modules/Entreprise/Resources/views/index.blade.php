@@ -18,19 +18,10 @@
                                         <th>ville</th>
                                         <th>province</th>
                                         <th>Déclarer</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>N°</th>
-                                        <th>Nom</th>
-                                        <th>téléphone</th>
-                                        <th>Matricule</th>
-                                        <th>ville</th>
-                                        <th>province</th>
                                         <th>Actions</th>
                                     </tr>
-                                </tfoot>
+                                </thead>
+
                                 <tbody>
                                     @foreach ($entreprises as $key => $entreprise)
                                         <tr>
@@ -41,17 +32,29 @@
                                             <td>{{ $entreprise->town }}</td>
                                             <td>{{ $entreprise->province }}</td>
                                             <td>
-                                                <a href="{{ route("create.declaration",["id" => $entreprise->id]) }}" title="modifier" class="btn btn-sm  btn-primary"> <span
-                                                        class="icon-holder">EMPLOYE</span></a>
                                                 <a href=" {{ route('dgi.create', ['id' => $entreprise->id]) }} "
-                                                    title="déclarer" class="btn btn-sm btn-success "> <span
+                                                    title="déclarer la dgi" class="btn btn-sm btn-success "> <span
                                                         class="icon-holder">DGI</span>
                                                 </a>
-                                                <a href="  " title="déclarer"
+                                                <a href="  " title="déclarer la drhkat"
                                                     class="btn btn-sm btn-warning text-black"> <span
                                                         class="icon-holder">DRHKAT</span>
                                                 </a>
-                                                <a href="  " title="déclarer"
+                                                <a href="  " title="déclarer inpp"
+                                                class="btn btn-sm btn-primary "> <span
+                                                    class="icon-holder">INPP</span>
+                                            </a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ route("employes",["id" => $entreprise->id]) }}" title="liste d'employés"
+                                                class="btn btn-sm btn-success "> <span
+                                                    class="icon-holder">liste d'employés</span>
+                                            </a>
+                                            <a href="{{ route("create.declaration",["id" => $entreprise->id]) }}" title="liste d'employés"
+                                                class="btn btn-sm btn-warning  "> <span
+                                                    class="icon-holder">declarer un employé</span>
+                                            </a>
+                                                <a href=" {{ route("declarations",["id" => $entreprise->id]) }} " title="détail de l'entreprise"
                                                     class="btn btn-sm btn-success "> <span
                                                         class="icon-holder">voir plus</span>
                                                 </a>

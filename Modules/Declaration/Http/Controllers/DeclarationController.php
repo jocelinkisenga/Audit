@@ -7,19 +7,27 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Declaration\Entities\Declaration;
+use Modules\Declaration\Entities\DeclarationTaxe;
 use Modules\Declaration\Http\Requests\DeclarationRequest;
+use Modules\Declaration\Repositories\DeclarationRepository;
 use Modules\Tax\Entities\Tax;
 
 class DeclarationController extends Controller
 {
+    public int $declaration;
+
+    public function __construct(public DeclarationRepository $declarationRepository){
+
+    }
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
+    public function index(int $id)
     {
-        $declarations = Declaration::latest()->get();
+        $declarations = Declaration::latest()->where("entreprise_id",$id)->get();
         $taxes = Tax::all();
+
         return view('declaration::index', compact("declarations", "taxes"));
     }
 
@@ -42,14 +50,16 @@ class DeclarationController extends Controller
      */
     public function store(Request $request)
     {
-        foreach($request->tax_id as $key =>$tax){
-            dd($tax);
-        }
+
+
         $user = EmployeExterieur::find($request->employe_id);
-        if ($user != null) {
 
+        if ($user != null && !empty($request->tax_id)) {
+         $declarationId =  $this->declarationRepository->declaration_with_existing_employe_create($request);
+         $this->declarationRepository->store_declaration_with_taxes($request->tax_id, $declarationId);
         } else {
-
+            $declarationId = $this->declarationRepository->declaration_new_employe_create($request);
+            $this->declarationRepository->store_declaration_with_taxes($request->tax_id, $declarationId);
         }
 
 
