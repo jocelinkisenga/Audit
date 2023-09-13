@@ -11,6 +11,7 @@
 |
 */
 
-Route::prefix('user')->group(function() {
-    Route::get('/', 'UserController@index');
-});
+use Illuminate\Support\Facades\Route;
+use Modules\User\Http\Controllers\EmployeController;
+
+Route::get("/users",[EmployeController::class,"index"])->name("users.company");

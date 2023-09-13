@@ -41,7 +41,8 @@
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
                     <span class="icon-holder">
-                        <i class="c-teal-500 ti-view-list-alt"></i>
+                        <i class="c-teal-500 icon-bar-chart-o
+                        "></i>
                     </span>
                     <span class="title">Déclarations</span>
                     <span class="arrow">
@@ -51,11 +52,13 @@
                 <ul class="dropdown-menu">
                     <li class="nav-item dropdown">
                         <a href="{{route("entreprises")}}">
+                            <i class="c-teal-500 icon-list"></i>
                             <span>liste des Entreprises</span>
                         </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="{{route("create.entreprise")}}">
+                            <i class="c-teal-500 icon-plus"></i>
                             <span>créer une entreprise</span>
                         </a>
                     </li>
@@ -96,33 +99,11 @@
 
                 </ul>
             </li> --}}
+
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
                     <span class="icon-holder">
-                        <i class="c-teal-500 ti-view-list-alt"></i>
-                    </span>
-                    <span class="title">Tax</span>
-                    <span class="arrow">
-                        <i class="ti-angle-right"></i>
-                    </span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li class="nav-item dropdown">
-                        <a href="{{route("taxes")}}">
-                            <span>liste des tax</span>
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="{{route("create.tax")}}">
-                            <span>ajouter un tax</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
-                    <span class="icon-holder">
-                        <i class="c-teal-500 ti-user"></i>
+                        <i class="c-teal-500 icon-payment"></i>
                     </span>
                     <span class="title">Payroll</span>
                     <span class="arrow">
@@ -131,14 +112,69 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li class="nav-item dropdown">
-                        <a href="javascript:void(0);">
+                        <a href="{{ route("users.company") }}">
+                            <i class="c-teal-500 icon-users"></i>
                             <span>liste d'employés</span>
                         </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="javascript:void(0);">
+                            <i class="c-teal-500 icon-plus"></i>
                             <span>ajouter un employé</span>
                         </a>
+                    </li>
+
+                </ul>
+            </li>
+
+
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+
+                        <span class="c-teal-500 icon-gear"></span>
+                    </span>
+                    <span class="title">Paramètres</span>
+                    <span class="arrow">
+                        <i class="ti-angle-right"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item dropdown">
+                        <a href="">
+                            <span><i class="c-teal-500 icon-settings"></i> les fonctions / roles</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0);">
+                            <i class="c-teal-500 icon-attach_money"></i>
+                            <span>Dévise</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle" href="javascript:void(0);">
+                            <span class="icon-holder">
+                                <i class="c-teal-500 icon-money"></i>
+                            </span>
+                            <span class="title">Tax</span>
+                            <span class="arrow">
+                                <i class="ti-angle-right"></i>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item dropdown">
+                                <a href="{{route("taxes")}}">
+                                    <i class="c-teal-500 icon-list"></i>
+                                    <span>liste des tax</span>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="{{route("create.tax")}}">
+                                    <i class="c-teal-500 icon-plus"></i>
+                                    <span>ajouter un tax</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
 
                 </ul>

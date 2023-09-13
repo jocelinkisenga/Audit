@@ -59,6 +59,12 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="{{ asset("icomoon/fonts/icomoon.eot") }}">
+    <link rel="stylesheet" href="{{ asset("icomoon/demo-files/demo.css") }}">
+    <link rel="stylesheet" href="{{  asset("icomoon/fonts/icomoon.svg") }}">
+    <link rel="stylesheet" href="{{ asset("icomoon/fonts/icomoon.ttf") }}">
+    <link rel="stylesheet" href="{{ asset("icomoon/fonts/icomoon.woff") }}">
+    <link rel="stylesheet" href="{{ asset("icomoon/style.css") }}">
     <script defer="defer" src="{{asset("main.js")}}"></script>
     @livewireStyles
 </head>
