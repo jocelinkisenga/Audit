@@ -102,6 +102,16 @@
         </div>
     </div>
     @livewireScripts
+<script >
+    $(document).ready(function() {
+    $('#datatable').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'print'
+        ]
+    } );
+} );
+</script>
 </body>
 
 </html>

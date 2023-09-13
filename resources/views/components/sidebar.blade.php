@@ -5,7 +5,7 @@
         <div class="sidebar-logo">
             <div class="peers ai-c fxw-nw">
                 <div class="peer peer-greed">
-                    <a class="sidebar-link td-n" href="index.html">
+                    <a class="sidebar-link td-n" href="{{ route('home') }}">
                         <div class="peers ai-c fxw-nw">
                             <div class="peer">
                                 <div class="logo">
@@ -31,7 +31,7 @@
         <!-- ### $Sidebar Menu ### -->
         <ul class="sidebar-menu scrollable pos-r">
             <li class="nav-item mT-30 actived">
-                <a class="sidebar-link" href="index.html">
+                <a class="sidebar-link" href="{{ route('home') }}">
                     <span class="icon-holder">
                         <i class="c-blue-500 ti-home"></i>
                     </span>
@@ -43,7 +43,7 @@
                     <span class="icon-holder">
                         <i class="c-teal-500 ti-view-list-alt"></i>
                     </span>
-                    <span class="title">Entreprises</span>
+                    <span class="title">Déclarations</span>
                     <span class="arrow">
                         <i class="ti-angle-right"></i>
                     </span>
@@ -124,7 +124,7 @@
                     <span class="icon-holder">
                         <i class="c-teal-500 ti-user"></i>
                     </span>
-                    <span class="title">Nos employés</span>
+                    <span class="title">Payroll</span>
                     <span class="arrow">
                         <i class="ti-angle-right"></i>
                     </span>

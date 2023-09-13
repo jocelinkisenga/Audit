@@ -2,6 +2,7 @@
 
 namespace Modules\Entreprise\Http\Controllers;
 
+use App\Models\EmployeExterieur;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -16,9 +17,9 @@ class EmployeController extends Controller
      */
     public function index(int $id)
     {
-        $declarations = Declaration::latest()->get();
-        $taxes = Tax::all();
-        return view('entreprise::employe');
+        $employes = EmployeExterieur::latest()->where("entreprise_id", $id)->get();
+
+        return view('entreprise::employe', compact("employes"));
     }
 
     /**
@@ -38,6 +39,18 @@ class EmployeController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    public function employe_declarations(int $id) {
+         $declarations = Declaration::latest()->where("employe_id",$id)->with("employe_externe")->get();
+
+        $taxes = Tax::join('declaration_taxes', 'taxes.id', '=', 'declaration_taxes.taxe_id')
+                    ->join("declarations","declarations.employe_id","=", "declaration_taxes.declaration_id")
+                    ->where("declarations.employe_id",$id)->get(["taxes.*"]);
+
+        $employe = EmployeExterieur::findOrFail($id);
+
+        return view('declaration::employeDeclaration',compact('declarations',"taxes","employe"));
     }
 
     /**

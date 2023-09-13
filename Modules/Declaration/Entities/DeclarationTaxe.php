@@ -24,6 +24,6 @@ class DeclarationTaxe extends Model
     }
 
     public function taxe() : BelongsTo {
-        $this-> belongsTo(Tax::class,"taxe_id");
+      return  $this->belongsTo(Tax::class,"taxe_id");
     }
 }

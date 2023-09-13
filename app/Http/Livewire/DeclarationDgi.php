@@ -16,7 +16,7 @@ class DeclarationDgi extends Component
 
                  public  $renum_impo_nat_non_impos, $renum_impo_nat_impos, $renum_impo_expa_non_impos, $renum_impo_expa_impos, $renum_impo_assoc_actif, $renum_impo_exploit_indiv,
                  $renum_impo_person_occas, $renum_impo_total;
-
+    public $Expa_impo_IPR;
 
     public function render()
     {
@@ -28,7 +28,8 @@ class DeclarationDgi extends Component
 
         $this->renum_impo_total =  $this->renum_impo_nat_non_impos + $this->renum_impo_nat_impos + $this->renum_impo_expa_non_impos + $this->renum_impo_expa_impos + $this->renum_impo_assoc_actif + $this->renum_impo_exploit_indiv +
                  $this->renum_impo_person_occas;
-
+        $this->Expa_impo_IPR = ($this->renum_impo_expa_impos - (25/100) * $this->renum_impo_expa_impos);
+        
         return view('livewire.declaration-dgi');
     }
 

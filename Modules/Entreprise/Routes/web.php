@@ -23,4 +23,6 @@ use Modules\Entreprise\Http\Controllers\EntrepriseController;
 
     Route::get('employes/{id}',[EmployeController::class,"index"])->name("employes");
 
+    Route::get("liste-declaration/{id}",[EmployeController::class,"employe_declarations"])->name("employe.declarations");
+
 

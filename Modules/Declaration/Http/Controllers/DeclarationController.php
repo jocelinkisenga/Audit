@@ -31,6 +31,8 @@ class DeclarationController extends Controller
         return view('declaration::index', compact("declarations", "taxes"));
     }
 
+
+
     /**
      * Show the form for creating a new resource.
      * @return Renderable

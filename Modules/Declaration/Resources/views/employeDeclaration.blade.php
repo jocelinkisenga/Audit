@@ -1,0 +1,59 @@
+@extends("layouts.main")
+@section('content')
+
+<main class="main-content bgc-grey-100">
+    <div id="mainContent">
+      <div class="container-fluid">
+        <h4 class="c-grey-900 mT-10 mB-30 text-uppercase">liste des déclarations de <strong>{{ $employe->name }}</strong> </h4>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="bgc-white bd bdrs-3 p-20 mB-20">
+              <h4 class="c-grey-900 mB-20">Recentes déclarations</h4>
+              <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                  <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Montant</th>
+                        <th>entreprise</th>
+                        <th>date</th>
+                        @foreach ($taxes as $taxe)
+                            <th>{{ $taxe->name }}</th>
+                        @endforeach
+                        <th>Actions</th>
+                  </thead>
+
+                  <tbody>
+                    @foreach ($declarations as $key => $declaration)
+                    <tr>
+                        <td>{{$key + 1}}</td>
+                        <td>{{$declaration->salaire}} fc</td>
+                        <td>{{$declaration->entreprise->name}}</td>
+                        <td>{{$declaration->date_declaration}}</td>
+
+                            @foreach ($taxes as $tax)
+                            <td>
+                                {{ ($declaration->salaire - ($tax->percent / 100) * $declaration->salaire) }}
+                            </td>
+                            @endforeach
+
+                        <td></td>
+                        <td></td>
+                        <td>
+                          <a href="" title="modifier" class="btn btn-sm btn-success"> <span class="icon-holder"><i class="fa fa-edit btn-primary"></i></span></a>
+                          <a href="" title="déclarer" class="btn btn-sm btn-warning">  <span class="icon-holder"><i class="fa fa-eye btn-success"></i></span> </a>
+                        </td>
+                      </tr>
+
+                    @endforeach
+
+
+                    </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+@endsection
+

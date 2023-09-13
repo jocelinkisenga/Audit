@@ -51,12 +51,12 @@
                                                     class="icon-holder">liste d'employés</span>
                                             </a>
                                             <a href="{{ route("create.declaration",["id" => $entreprise->id]) }}" title="liste d'employés"
-                                                class="btn btn-sm btn-warning  "> <span
+                                                class="btn btn-sm btn-warning  text-black text-uppercase"> <span
                                                     class="icon-holder">declarer un employé</span>
                                             </a>
                                                 <a href=" {{ route("declarations",["id" => $entreprise->id]) }} " title="détail de l'entreprise"
                                                     class="btn btn-sm btn-success "> <span
-                                                        class="icon-holder">voir plus</span>
+                                                        class="icon-holder">voir plus <i class="fa fa-eye"></i></span>
                                                 </a>
                                             </td>
                                         </tr>
