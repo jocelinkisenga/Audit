@@ -140,13 +140,13 @@
                     </span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li class="nav-item dropdown">
-                        <a href="">
+                    <li class="nav-item ">
+                        <a href="{{ route("fonction.index") }}">
                             <span><i class="c-teal-500 icon-settings"></i> les fonctions / roles</span>
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a href="javascript:void(0);">
+                    <li class="nav-item ">
+                        <a href="{{ route("devise.index") }}">
                             <i class="c-teal-500 icon-attach_money"></i>
                             <span>Dévise</span>
                         </a>

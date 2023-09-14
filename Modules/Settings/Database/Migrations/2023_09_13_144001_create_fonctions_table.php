@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Modules\User\Entities\Role;
 
 return new class extends Migration
 {
@@ -14,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('fonctions', function (Blueprint $table) {
             $table->id();
             $table->string("name");
             $table->boolean("picked")->default(false);
             $table->timestamps();
         });
-
-        Role::create(["name" => "admin"]);
     }
 
     /**
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('fonctions');
     }
 };
