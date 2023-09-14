@@ -3,5 +3,6 @@
     "Declaration": true,
     "Entreprise": true,
     "Tax": true,
-    "Dgi": true
+    "Dgi": true,
+    "Settings": true
 }

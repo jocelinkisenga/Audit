@@ -52,7 +52,7 @@
             <td><input type="text" wire:model='nbr_expa_impos' class="form-control sm"></td>
             <td><input type="text" wire:model="brute_expa_impos" class="form-control sm"></td>
             <td><input type="text" wire:model="renum_impo_expa_impos" class="form-control sm"></td>
-            <td><input type="text" wire:model="" class="form-control sm"></td>
+            <td><input type="text" wire:model="{{ $Expa_impo_IPR }}" class="form-control sm"></td>
             <td><input type="text" wire:model="" class="form-control sm"></td>
             <td><input type="text" wire:model="" class="form-control sm"></td>
           </tr>

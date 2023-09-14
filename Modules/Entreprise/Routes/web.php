@@ -11,6 +11,7 @@
 |
 */
 
+use Modules\Entreprise\Http\Controllers\EmployeController;
 use Modules\Entreprise\Http\Controllers\EntrepriseController;
 
 
@@ -19,5 +20,9 @@ use Modules\Entreprise\Http\Controllers\EntrepriseController;
     Route::get("create",[EntrepriseController::class,"create"])->name("create.entreprise");
 
     Route::post('store/',[EntrepriseController::class,"store"])->name("store.entreprise");
+
+    Route::get('employes/{id}',[EmployeController::class,"index"])->name("employes");
+
+    Route::get("liste-declaration/{id}",[EmployeController::class,"employe_declarations"])->name("employe.declarations");
 
 

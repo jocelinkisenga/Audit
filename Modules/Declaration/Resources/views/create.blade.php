@@ -74,7 +74,7 @@
                     <div class="col-md-3">
                         <div class="mb-3">
                             <div class="checkbox checkbox-square checkbox-info peers ai-c">
-                              <input type="checkbox" id="inputCall2" name="tax_id" class="peer">
+                              <input type="checkbox" id="inputCall2" name="tax_id[]" value="{{ $item->id }}" class="peer">
                               <label for="inputCall2" class="form-label peers peer-greed js-sb ai-c">
                                 <span class="peer peer-greed">{{$item->name}}</span>
                               </label>

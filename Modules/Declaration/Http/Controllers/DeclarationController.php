@@ -7,21 +7,31 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Declaration\Entities\Declaration;
+use Modules\Declaration\Entities\DeclarationTaxe;
 use Modules\Declaration\Http\Requests\DeclarationRequest;
+use Modules\Declaration\Repositories\DeclarationRepository;
 use Modules\Tax\Entities\Tax;
 
 class DeclarationController extends Controller
 {
+    public int $declaration;
+
+    public function __construct(public DeclarationRepository $declarationRepository){
+
+    }
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
+    public function index(int $id)
     {
-        $declarations = Declaration::latest()->get();
+        $declarations = Declaration::latest()->where("entreprise_id",$id)->get();
         $taxes = Tax::all();
-        return view('declaration::index', compact("declarations","taxes"));
+
+        return view('declaration::index', compact("declarations", "taxes"));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -32,7 +42,7 @@ class DeclarationController extends Controller
         $employes = EmployeExterieur::where("entreprise_id", "=", $id)->get();
         $entrepriseId = $id;
         $taxes = Tax::all();
-        return view('declaration::create', compact("employes","entrepriseId","taxes"));
+        return view('declaration::create', compact("employes", "entrepriseId", "taxes"));
     }
 
     /**
@@ -42,35 +52,20 @@ class DeclarationController extends Controller
      */
     public function store(Request $request)
     {
-        $user = EmployeExterieur::find($request->employe_id);
-        if($user != null) {
-            Declaration::create([
-                "entreprise_id" => $request->entreprise_id,
-                "employe_id" => $request->employe_id,
-                "salaire" => $request->salaire,
-                "date_declaration" => $request->date_declaration
-           ]);
-        } else {
-            $employe =  EmployeExterieur::create([
-                "entreprise_id" => $request->entreprise_id,
-                "name" => $request->name,
-                "addresse" => $request->addresse,
-                "phone" => $request->phone,
-                "town" => $request->town,
-                "province" => $request->province
-           ]);
 
-           Declaration::create([
-                "entreprise_id" => $request->entreprise_id,
-                "employe_id" => $employe->id,
-                "salaire" => $request->salaire,
-                "date_declaration" => $request->date_declaration
-           ]);
+
+        $user = EmployeExterieur::find($request->employe_id);
+
+        if ($user != null && !empty($request->tax_id)) {
+         $declarationId =  $this->declarationRepository->declaration_with_existing_employe_create($request);
+         $this->declarationRepository->store_declaration_with_taxes($request->tax_id, $declarationId);
+        } else {
+            $declarationId = $this->declarationRepository->declaration_new_employe_create($request);
+            $this->declarationRepository->store_declaration_with_taxes($request->tax_id, $declarationId);
         }
 
 
-       return redirect()->route("declarations");
-
+        return redirect()->route("declarations");
     }
 
     /**

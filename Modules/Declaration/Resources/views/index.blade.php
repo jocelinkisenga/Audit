@@ -1,5 +1,6 @@
 @extends("layouts.main")
 @section('content')
+
 <main class="main-content bgc-grey-100">
     <div id="mainContent">
       <div class="container-fluid">
@@ -17,26 +18,12 @@
                         <th>salaire</th>
                         <th>entreprise</th>
                         <th>date</th>
-                        <th>INPP</th>
-                        <th>INSS</th>
-                        <th>DRHKAT</th>
+                        @foreach ($taxes as $taxe)
+                            <th>{{ $taxe->name }}</th>
+                        @endforeach
                         <th>Actions</th>
-                    </tr>
                   </thead>
-                  <tfoot>
-                    <tr>
-                        <th>N°</th>
-                        <th>Nom</th>
-                        <th>téléphone</th>
-                        <th>salaire</th>
-                        <th>entreprise</th>
-                        <th>date</th>
-                        <th>INPP</th>
-                        <th>INSS</th>
-                        <th>DRHKAT</th>
-                        <th>Actions</th>
-                    </tr>
-                  </tfoot>
+
                   <tbody>
                     @foreach ($declarations as $key => $declaration)
                     <tr>
@@ -46,13 +33,13 @@
                         <td>{{$declaration->salaire}} $</td>
                         <td>{{$declaration->entreprise->name}}</td>
                         <td>{{$declaration->date_declaration}}</td>
-                        <td>
+
                             @foreach ($taxes as $tax)
-                                @if ($tax->name === "INPP")
-                                    {{$declaration->salaire - ((16/100) * $declaration->salaire)}}
-                                @endif
+                            <td>
+                                {{ ($declaration->salaire - ($tax->percent / 100) * $declaration->salaire) }}
+                            </td>
                             @endforeach
-                        </td>
+
                         <td></td>
                         <td></td>
                         <td>
