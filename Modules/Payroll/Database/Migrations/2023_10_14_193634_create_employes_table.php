@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string("addresse")->nullable();
             $table->string("contact_phone")->nullable();
             $table->string("etat_civile")->nullable();
-            $table->foreignId('role_id')->nullable();
+            $table->foreignId('fonction_id')->nullable();
             $table->string("niveau_etude")->nullable();
             $table->integer("nombre_enfant")->nullable();
             $table->string("nom_complet_femme")->nullable();

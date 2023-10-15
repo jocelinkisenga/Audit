@@ -5,7 +5,10 @@ namespace Modules\Payroll\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Payroll\Actions\GetAllCompanyEmployeAction;
 use Modules\Payroll\Actions\PickedRoleAction;
+use Modules\Payroll\Actions\StoreEmployePayrollAction;
+use Modules\Payroll\Http\Requests\EmployeRequest;
 
 class PayrollController extends Controller
 {
@@ -14,8 +17,11 @@ class PayrollController extends Controller
      * Summary of __construct
      * @param \Modules\Payroll\Actions\PickedRoleAction $pickedRoleAction
      */
-    public function __construct(public PickedRoleAction $pickedRoleAction){
-
+    public function __construct(
+        public PickedRoleAction $pickedRoleAction,
+        public StoreEmployePayrollAction $storeEmployePayrollAction,
+        public GetAllCompanyEmployeAction $getAllCompanyEmployeAction,
+    ) {
     }
 
     /**
@@ -24,7 +30,8 @@ class PayrollController extends Controller
      */
     public function index()
     {
-        return view('payroll::index');
+        $employes = $this->getAllCompanyEmployeAction->get_all_employes();
+        return view('payroll::index', compact('employes'));
     }
 
     /**
@@ -34,7 +41,7 @@ class PayrollController extends Controller
     public function create()
     {
         $fonctions = $this->pickedRoleAction->picked_roles();
-        return view('payroll::create');
+        return view('payroll::create', compact("fonctions"));
     }
 
     /**
@@ -42,9 +49,12 @@ class PayrollController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(EmployeRequest $request)
     {
-        //
+        $this->pickedRoleAction->update_picked_role($request->role_id);
+        $this->storeEmployePayrollAction->store_employe($request);
+
+        return redirect()->route("payroll.employ.index");
     }
 
     /**

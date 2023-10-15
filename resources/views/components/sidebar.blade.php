@@ -112,7 +112,7 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li class="nav-item dropdown">
-                        <a href="{{ route("users.company") }}">
+                        <a href="{{ route("payroll.employ.index") }}">
                             <i class="c-teal-500 icon-users"></i>
                             <span>liste d'employés</span>
                         </a>

@@ -24,22 +24,26 @@
                             </thead>
 
                             <tbody>
+                                @foreach ($employes as $key => $item)
 
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
+                                <tr>
+                                    <td>{{ $key+1 }}</td>
+                                    <td>{{ $item->nom }}</td>
+                                    <td>{{ $item->postnom }}</td>
+                                    <td>{{ $item->matricule }}</td>
+                                    <td>{{ $item->addresse }}</td>
+                                    <td>{{ $item->contact_phone }}</td>
+                                    <td>
+                                        {{ $item->fonction->name }}
+                                    </td>
+                                    <td>
+                                        <a href="" class="btn btn-primary" title="voir la fiche de l'employé"><i class="ti-eye font-bold"></i>détails</a>
+                                        <a href="" class="btn btn-success" title="proceder au paiement"><i class="ti-money font-bold"></i>paiement</a>
+                                        <a href="" title="proceder à la déclaration"></a>
+                                    </td>
+                                </tr>
 
-                                        </a>
-                                        </td>
-                                        <td>
-                                        </td>
-                                    </tr>
-
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

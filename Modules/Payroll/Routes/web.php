@@ -14,6 +14,7 @@
 use Modules\Payroll\Http\Controllers\PayrollController;
 
 Route::prefix('payroll')->group(function() {
-    Route::get('/', 'PayrollController@index');
+    Route::get('/', 'PayrollController@index')->name("payroll.employ.index");
     Route::get("addEmploye/",'PayrollController@create')->name("payroll.employ.add");
+    Route::post("storeEmploye","PayrollController@store")->name("payroll.employe.store");
 });

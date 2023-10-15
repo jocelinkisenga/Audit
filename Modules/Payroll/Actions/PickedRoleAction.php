@@ -15,4 +15,12 @@ use Modules\Settings\Entities\Fonction;
         return Fonction::wherePicked(false)->get();
     }
 
+    public function update_picked_role($id){
+        $fonction = Fonction::find($id);
+        $fonction->update([
+            "picked" => 1
+        ]);
+        
+    }
+
     }
