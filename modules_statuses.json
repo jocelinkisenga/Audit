@@ -4,5 +4,6 @@
     "Entreprise": true,
     "Tax": true,
     "Dgi": true,
-    "Settings": true
+    "Settings": true,
+    "Payroll": true
 }

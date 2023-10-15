@@ -5,6 +5,7 @@ namespace Modules\Settings\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Settings\Entities\Devise;
 
 class DeviseController extends Controller
 {
@@ -14,7 +15,9 @@ class DeviseController extends Controller
      */
     public function index()
     {
-        return view('settings::devises');
+        $devises = Devise::latest()->get();
+
+        return view('settings::devises',compact("devises"));
     }
 
     /**
@@ -33,7 +36,12 @@ class DeviseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       Devise::create([
+        "name" => $request->name,
+        "abbreviation" => $request->abbreviation
+       ]);
+
+       return redirect()->back();
     }
 
     /**

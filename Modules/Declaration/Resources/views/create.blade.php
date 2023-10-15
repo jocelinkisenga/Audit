@@ -11,7 +11,6 @@
             <div class="mT-30">
               <form action="{{route("store.declaration")}}" method="POST" >
                 @csrf
-
                 <div class="row">
                     <div class="mb-3 col-md-12">
                         <label class="form-label" for="inputState">sélectionner un nouvel employé s'il existe (optionnel)</label>
@@ -28,11 +27,11 @@
                     <input type="hidden" name="entreprise_id" value="{{$entrepriseId}}">
                   <div class="mb-3 col-md-6 mt-3">
                     <label class="form-label" for="inputEmail4">Nom de l'employé</label>
-                    <input type="text" name="name" class="form-control" id="inputEmail4" placeholder="Gabriel kasenda">
+                    <input type="text" name="name" class="form-control" placeholder="Gabriel kasenda">
                   </div>
                   <div class="mb-3 col-md-6">
                     <label class="form-label" for="inputPassword4">N° de téléphone</label>
-                    <input type="text" name="phone" class="form-control" id="inputPassword4" placeholder="0991161449">
+                    <input type="text" name="phone" class="form-control"  placeholder="0991161449">
                   </div>
                 </div>
                 <div class="row">

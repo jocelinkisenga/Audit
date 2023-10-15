@@ -118,7 +118,7 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="javascript:void(0);">
+                        <a href="{{ route("payroll.employ.add") }}">
                             <i class="c-teal-500 icon-plus"></i>
                             <span>ajouter un employé</span>
                         </a>

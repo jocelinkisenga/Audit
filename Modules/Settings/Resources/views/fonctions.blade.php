@@ -8,7 +8,7 @@
                 </div>
                 <div class="col-6">
                     <button class="btn btn-success mT-10 mB-30 text-white" data-bs-toggle="modal"
-                        data-bs-target="#create">Ajouter une fonction <i class="icon-plus ml-2"></i></button>
+                        data-bs-target="#create">Ajouter une fonction / role <i class="icon-plus ml-2"></i></button>
                 </div>
             </div>
             <div class="container-fluid">
@@ -33,13 +33,17 @@
                                         <td>{{ $key+1 }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>
-                                            @if ($item->statut === 0)
+                                            @if ($item->picked === 0)
                                                 <span class="text-danger">Non pris</span>
                                             @else
                                                 <span class="text-success">déja pris</span>
                                             @endif
                                         </td>
-                                        <td></td>
+                                        <td>
+                                            <a href="{{ route("fonction.edit",["id" => $item->id]) }}">
+                                                <i class="icon-edit"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                     @endforeach
 

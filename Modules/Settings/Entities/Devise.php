@@ -9,8 +9,8 @@ class Devise extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
-    
+    protected $fillable = ["name","abbreviation"];
+
     protected static function newFactory()
     {
         return \Modules\Settings\Database\factories\DeviseFactory::new();

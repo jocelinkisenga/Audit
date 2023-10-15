@@ -59,7 +59,8 @@ class FonctionController extends Controller
      */
     public function edit($id)
     {
-        return view('settings::edit');
+        $function = Fonction::findOrFail($id);
+        return view('settings::pages/editFunction',compact("function"));
     }
 
     /**
@@ -68,9 +69,11 @@ class FonctionController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+       $function =  Fonction::findOrFail($request->function_id);
+        $function->update(["name" => $request->name]);
+        return redirect()->route("fonction.index");
     }
 
     /**
