@@ -7,7 +7,7 @@
                 <h4 class="c-grey-900 mT-10 mB-30">liste de tous les employés</h4>
                 <div class="row mb-4">
 
-                    <div class="col-6"><a href="" class="btn btn-primary">liste des paiements</a></div>
+                    <div class="col-6"><a href="{{ route("payment.list") }}" class="btn btn-primary">liste des paiements</a></div>
 
 
                     <div class="col-6"><a href="{{ route("payroll.employ.add") }}" class="btn btn-primary">Ajoute un employé</a></div>

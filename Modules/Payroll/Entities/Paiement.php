@@ -4,7 +4,7 @@ namespace Modules\Payroll\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use Modules\Payroll\Database\factories\PaiementFactory;
 class Paiement extends Model
 {
     use HasFactory;
@@ -15,8 +15,11 @@ class Paiement extends Model
         "date_paiement"
     ];
 
+    public function employe(){
+        return $this->belongsTo(\Modules\Payroll\Entities\Employe::class,"employe_company_id");
+    }
     protected static function newFactory()
     {
-        return \Modules\Payroll\Database\factories\PaiementFactory::new();
+        return PaiementFactory::new();
     }
 }

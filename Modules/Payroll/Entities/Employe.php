@@ -5,6 +5,7 @@ namespace Modules\Payroll\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Modules\Settings\Entities\Fonction;
 
 class Employe extends Model
@@ -42,5 +43,9 @@ class Employe extends Model
 
     public function fonction() : BelongsTo {
         return $this->belongsTo(Fonction::class,"fonction_id");
+    }
+
+    public function paiment() : HasMany {
+        return $this->hasMany(Paiement::class);
     }
 }

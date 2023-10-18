@@ -5,16 +5,22 @@ namespace Modules\Payroll\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Payroll\Actions\Payment\ListPaymentsAction;
 use Modules\Payroll\Actions\Payment\StorePaymentAction;
 use Modules\Payroll\Entities\Employe;
 use Modules\Payroll\Http\Requests\PaiementRequest;
 
 class PaiementController extends Controller
 {
+    /**
+     * Summary of __construct
+     * @param \Modules\Payroll\Actions\Payment\StorePaymentAction $storePaymentAction
+     * @param \Modules\Payroll\Actions\Payment\ListPaymentsAction $listPaymentsAction
+     */
     public  function __construct(
         public StorePaymentAction $storePaymentAction,
-    )
-    {
+        public ListPaymentsAction $listPaymentsAction,
+    ) {
     }
     /**
      * Display a listing of the resource.
@@ -25,6 +31,16 @@ class PaiementController extends Controller
         return view('payroll::index');
     }
 
+
+
+    public function list()
+    {
+        $listPayments = $this->listPaymentsAction->execute();
+      
+        return view('payroll::listPayments',compact("listPayments"));
+    }
+
+
     /**
      * Show the form for creating a new resource.
      * @return Renderable
@@ -32,6 +48,7 @@ class PaiementController extends Controller
     public function create(int $employe)
     {
         $employe = Employe::findOrFail($employe);
+
         return view('payroll::addPay', compact("employe"));
     }
 
