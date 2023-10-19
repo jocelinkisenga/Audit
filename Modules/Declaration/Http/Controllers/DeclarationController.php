@@ -16,8 +16,8 @@ class DeclarationController extends Controller
 {
     public int $declaration;
 
-    public function __construct(public DeclarationRepository $declarationRepository){
-
+    public function __construct(public DeclarationRepository $declarationRepository)
+    {
     }
     /**
      * Display a listing of the resource.
@@ -25,7 +25,7 @@ class DeclarationController extends Controller
      */
     public function index(int $id)
     {
-        $declarations = Declaration::latest()->where("entreprise_id",$id)->get();
+        $declarations = Declaration::latest()->where("entreprise_id", $id)->get();
         $taxes = Tax::all();
 
         return view('declaration::index', compact("declarations", "taxes"));
@@ -57,10 +57,12 @@ class DeclarationController extends Controller
         $user = EmployeExterieur::find($request->employe_id);
 
         if ($user != null && !empty($request->tax_id)) {
-         $declarationId =  $this->declarationRepository->declaration_with_existing_employe_create($request);
-         $this->declarationRepository->store_declaration_with_taxes($request->tax_id, $declarationId);
+            $declarationId =  $this->declarationRepository->declaration_with_existing_employe_create($request);
+
+            $this->declarationRepository->store_declaration_with_taxes($request->tax_id, $declarationId);
         } else {
             $declarationId = $this->declarationRepository->declaration_new_employe_create($request);
+
             $this->declarationRepository->store_declaration_with_taxes($request->tax_id, $declarationId);
         }
 

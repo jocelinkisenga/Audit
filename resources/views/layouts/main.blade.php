@@ -67,10 +67,11 @@
     <link rel="stylesheet" href="{{ asset("icomoon/fonts/icomoon.woff") }}">
     <link rel="stylesheet" href="{{ asset("icomoon/style.css") }}">
 
+
+    <link rel="stylesheet" href="{{ asset("bootstrap/css/bootstrap.min.css") }}">
     <script defer="defer"  src="{{asset("main.js")}}"></script>
-    <link rel="stylesheet" href="{{ asset("bootstrap-5.0.2-dist/css/bootstrap.min.css") }}">
     @livewireStyles
-    
+
 </head>
 
 <body class="app">
