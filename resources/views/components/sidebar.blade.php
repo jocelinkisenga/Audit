@@ -57,7 +57,7 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="{{route("create.entreprise")}}">
+                        <a href="{{route("dgi.create")}}">
                             <i class="c-teal-500 icon-plus"></i>
                             <span>DGI</span>
                         </a>
@@ -89,10 +89,10 @@
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
                     <span class="icon-holder">
-                        <i class="c-teal-500 icon-bar-chart-o
+                        <i class="c-teal-500 ti-home
                         "></i>
                     </span>
-                    <span class="title">Entrprises</span>
+                    <span class="title">Entreprises</span>
                     <span class="arrow">
                         <i class="ti-angle-right"></i>
                     </span>
@@ -102,12 +102,6 @@
                         <a href="{{route("entreprises")}}">
                             <i class="c-teal-500 icon-list"></i>
                             <span>liste des Entreprises</span>
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="{{route("create.entreprise")}}">
-                            <i class="c-teal-500 icon-plus"></i>
-                            <span>Ajouter une entreprise</span>
                         </a>
                     </li>
 
@@ -166,12 +160,6 @@
                             <span>liste d'employés</span>
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a href="{{ route("payroll.employ.add") }}">
-                            <i class="c-teal-500 icon-plus"></i>
-                            <span>ajouter un employé</span>
-                        </a>
-                    </li>
 
                 </ul>
             </li>
@@ -215,12 +203,6 @@
                                 <a href="{{route("taxes")}}">
                                     <i class="c-teal-500 icon-list"></i>
                                     <span>liste des tax</span>
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="{{route("create.tax")}}">
-                                    <i class="c-teal-500 icon-plus"></i>
-                                    <span>ajouter un tax</span>
                                 </a>
                             </li>
                         </ul>

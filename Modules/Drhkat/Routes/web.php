@@ -13,4 +13,7 @@
 
 Route::prefix('drhkat')->group(function() {
     Route::get('/', 'DrhkatController@index')->name("drhkat.index");
+    Route::get("impotVehicule","ImpotSurLesVehiculesController@index")->name("drhkat.vehicules");
+    Route::get("impotLocatifs","ImpotLeRevenuLocatifController@index")->name("drhakt.locatif");
+    Route::get("impotFoncier","ImpotLeRevenuFoncierController@index")->name("drhkat.foncier");
 });

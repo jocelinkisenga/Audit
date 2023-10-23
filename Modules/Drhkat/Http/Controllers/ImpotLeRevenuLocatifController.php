@@ -6,7 +6,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-class ImpotSurLesVehiculesController extends Controller
+class ImpotLeRevenuLocatifController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ImpotSurLesVehiculesController extends Controller
      */
     public function index()
     {
-        return view('drhkat::impotSurLesVehicules');
+        return view('drhkat::impotRevenusLocatifs');
     }
 
     /**

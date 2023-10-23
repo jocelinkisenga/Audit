@@ -20,7 +20,7 @@
                                         <div class="peer">
                                             <span
                                                >
-                                                <button class="btn-success rounded">+ déclarer</button>
+                                                <a href="{{ route("drhkat.foncier") }}" class="btn-success rounded p-4">+ déclarer</a>
                                             </span>
                                         </div>
                                     </div>
@@ -41,7 +41,7 @@
                                         </div>
                                         <span
                                         >
-                                         <button class="btn-danger rounded">+ déclarer</button>
+                                         <a href="{{ route("drhakt.locatif") }}" class="btn-danger rounded p-4">+ déclarer</a>
                                      </span>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@
                                         </div>
                                         <span
                                         >
-                                         <button class="btn-warning rounded">+ déclarer</button>
+                                         <a href="{{ route("drhkat.vehicules") }}" class="btn-warning  p-4">+ déclarer</a ">
                                      </span>
                                     </div>
                                 </div>
@@ -90,7 +90,32 @@
                     </div>
                 </div>
                 <div class="masonry-item col-12">
+                    <div class="container-fluid">
 
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="bgc-white bd bdrs-3 p-20 mB-20">
+                                    <h4 class="c-grey-900 mB-20">Récentes déclarations</h4>
+                                    <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>N°</th>
+                                                <th>Nom</th>
+                                                <th>statut</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
     </main>
