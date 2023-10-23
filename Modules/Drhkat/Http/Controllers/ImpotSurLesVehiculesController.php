@@ -1,13 +1,12 @@
 <?php
 
-namespace Modules\Dgi\Http\Controllers;
+namespace Modules\Drhkat\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\Entreprise\Entities\Entreprise;
 
-class DgiController extends Controller
+class ImpotSurLesVehiculesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class DgiController extends Controller
      */
     public function index()
     {
-        return view('dgi::index');
+        return view('drhkat::index');
     }
 
     /**
@@ -24,8 +23,7 @@ class DgiController extends Controller
      */
     public function create()
     {
-
-        return view('dgi::create');
+        return view('drhkat::create');
     }
 
     /**
@@ -45,7 +43,7 @@ class DgiController extends Controller
      */
     public function show($id)
     {
-        return view('dgi::show');
+        return view('drhkat::show');
     }
 
     /**
@@ -55,7 +53,7 @@ class DgiController extends Controller
      */
     public function edit($id)
     {
-        return view('dgi::edit');
+        return view('drhkat::edit');
     }
 
     /**

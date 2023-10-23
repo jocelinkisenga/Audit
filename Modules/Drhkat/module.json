@@ -1,0 +1,11 @@
+{
+    "name": "Drhkat",
+    "alias": "drhkat",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Drhkat\\Providers\\DrhkatServiceProvider"
+    ],
+    "files": []
+}

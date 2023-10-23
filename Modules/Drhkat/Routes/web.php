@@ -11,6 +11,6 @@
 |
 */
 
-use Modules\Dgi\Http\Controllers\DgiController;
-
-Route::get('dgi',[DgiController::class, "create"])->name("dgi.create");
+Route::prefix('drhkat')->group(function() {
+    Route::get('/', 'DrhkatController@index')->name("drhkat.index");
+});

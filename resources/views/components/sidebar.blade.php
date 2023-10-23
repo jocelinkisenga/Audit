@@ -51,6 +51,54 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li class="nav-item dropdown">
+                        <a href="{{route("drhkat.index")}}">
+                            <i class="c-teal-500 icon-plus"></i>
+                            <span>DRHKAT</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="{{route("create.entreprise")}}">
+                            <i class="c-teal-500 icon-plus"></i>
+                            <span>DGI</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="{{route("create.entreprise")}}">
+                            <i class="c-teal-500 icon-plus"></i>
+                            <span>INPP</span>
+                        </a>
+                    </li>
+                    {{-- <li class="nav-item dropdown">
+                        <a href="javascript:void(0);">
+                            <span>Menu Item</span>
+                            <span class="arrow">
+                                <i class="ti-angle-right"></i>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="javascript:void(0);">Menu Item</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">Menu Item</a>
+                            </li>
+                        </ul>
+                    </li> --}}
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="c-teal-500 icon-bar-chart-o
+                        "></i>
+                    </span>
+                    <span class="title">Entrprises</span>
+                    <span class="arrow">
+                        <i class="ti-angle-right"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item dropdown">
                         <a href="{{route("entreprises")}}">
                             <i class="c-teal-500 icon-list"></i>
                             <span>liste des Entreprises</span>
@@ -59,9 +107,10 @@
                     <li class="nav-item dropdown">
                         <a href="{{route("create.entreprise")}}">
                             <i class="c-teal-500 icon-plus"></i>
-                            <span>créer une entreprise</span>
+                            <span>Ajouter une entreprise</span>
                         </a>
                     </li>
+
                     {{-- <li class="nav-item dropdown">
                         <a href="javascript:void(0);">
                             <span>Menu Item</span>

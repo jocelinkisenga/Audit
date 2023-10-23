@@ -78,7 +78,7 @@
 
 
                                 <div class="col-lg-6  mt-4">
-                                    <button class="btn btn-submit bg-success" type="submit"><span
+                                    <button class="btn btn-submit bg-success text-white" type="submit"><span
                                             class="spinner-border spinner-border-sm mr-2" role="status"
                                             aria-hidden="true"></span>Ajouter</button>
 
